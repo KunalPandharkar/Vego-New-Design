@@ -390,6 +390,23 @@
         </div>
     </section>
 
+    <button onclick="shareWebsite()" class="btn btn-primary">Share</button>
+    <script>
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title, // Page title
+                    text: "Check out this website!", // Custom share message
+                    url: window.location.href // Current URL
+                })
+                .then(() => console.log('Shared successfully'))
+                .catch((error) => console.log('Sharing failed', error));
+            } else {
+                alert("Your browser doesn't support the Share feature.");
+            }
+        }
+    </script>
+
     <!-- end garage cards section -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
